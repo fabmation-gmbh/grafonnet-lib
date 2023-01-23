@@ -7,6 +7,7 @@
    *
    * @param title The title of the graph panel.
    * @param description (optional) The description of the panel.
+   * @param timeFrom (optional) The relative start time.
    * @param transparent (default `false`) Whether to display the panel without a background.
    * @param unit (optional) The unit to use for values.
    * @param min (optional) The minimum value to display.
@@ -67,6 +68,7 @@
   new(
     title,
     description=null,
+    timeFrom=null,
     transparent=false,
     unit=null,
     min=null,
@@ -110,6 +112,7 @@
   ):: {
     type: 'timeseries',
     title: title,
+    [if timeFrom != null then 'timeFrom']: timeFrom,
     [if description != null then 'description']: description,
     [if transparent then 'transparent']: transparent,
     fieldConfig: {
