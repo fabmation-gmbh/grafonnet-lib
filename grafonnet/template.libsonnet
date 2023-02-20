@@ -239,22 +239,24 @@
    *
    * @param name Variable name.
    * @param label (default `''`) Display name of the variable dropdown. If you don’t enter a display name, then the dropdown label will be the variable name.
+   * @param value default value Variable.
    *
    * @return A text box variable.
    */
   text(
     name,
-    label=''
+    label='',
+    value
   )::
     {
       current: {
         selected: false,
-        text: '',
-        value: '',
+        text: value,
+        value: value,
       },
       name: name,
       label: label,
-      query: '',
+      query: value,
       type: 'textbox',
     },
   /**
